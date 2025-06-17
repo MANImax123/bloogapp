@@ -2,9 +2,9 @@ const exp = require("express");
 const app = exp();
 require('dotenv').config();//process.env
 const mongoose = require("mongoose");
-const userApp = require("./APIs/userApi");
-const authorApp = require("./APIs/authorApi");
-const adminApp = require("./APIs/adminApi");
+const userApp = require("./APIs/userAPI");
+const authorApp = require("./APIs/authorAPI");
+const adminApp = require("./APIs/adminAPI");
 const cors=require('cors')
 app.use(cors())
 
