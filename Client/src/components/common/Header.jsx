@@ -31,10 +31,12 @@ const Header = () => {
     <div className="header-wrapper">
       <nav className="header-nav">
         <div className="logo-container">
-          <Link href="/">
+          <Link to="/">
             <img src={logo} alt="Logo" className="logo-image" />
           </Link>
-          <h1 className="site-title">BlogVerse</h1>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <h1 className="site-title">BlogVerse</h1>
+          </Link>
         </div>
         <ul className="nav-links">
           {!isSignedIn ? (
