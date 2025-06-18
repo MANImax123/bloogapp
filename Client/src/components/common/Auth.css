@@ -1,55 +1,133 @@
 .auth-container {
-  padding-top: 60px;
+  padding-top: 120px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background: #f5f5f5; /* Light gray background */
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  position: relative;
 }
 
-/* Clerk form customization */
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(249, 203, 40, 0.05), rgba(255, 77, 77, 0.05));
+  pointer-events: none;
+}
+
+/* Ensure Clerk components are positioned above the background */
+.auth-container > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Additional Clerk form customization for dark theme */
 .cl-card {
-  background: #ffffff !important; /* White card background */
-  border: 1px solid #e5e5e5 !important;
-  border-radius: 8px !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+  background: #1E1E1E !important;
+  border: 1px solid rgba(201, 162, 39, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.15) !important;
 }
 
 .cl-formButtonPrimary {
-  background: #1e293b !important; /* Keep dark button for contrast */
-  color: #fff !important;
-  transition: background 0.3s ease !important;
+  background: #C9A227 !important;
+  color: #121212 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
 }
 
 .cl-formButtonPrimary:hover {
-  background: #2d3748 !important;
+  background: #FFD700 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(201, 162, 39, 0.3) !important;
 }
 
 /* Input fields */
 .cl-input {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  color: #1a202c !important; /* Dark text for readability */
+  background: #2A2A2A !important;
+  border: 1px solid rgba(201, 162, 39, 0.3) !important;
+  color: #E0E0E0 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.cl-input:focus {
+  border-color: #C9A227 !important;
+  box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.2) !important;
+  outline: none !important;
 }
 
 /* Text colors */
 .cl-footerText, 
-.cl-footerActionText, 
-.cl-formHeaderTitle, 
+.cl-footerActionText {
+  color: #A0A0A0 !important;
+}
+
+.cl-formHeaderTitle {
+  color: #FFD700 !important;
+  font-weight: 700 !important;
+}
+
 .cl-formHeaderSubtitle {
-  color: #1a202c !important; /* Dark text */
+  color: #A0A0A0 !important;
 }
 
 .cl-footerActionLink {
-  color: #2563eb !important; /* Blue links */
+  color: #C9A227 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+.cl-footerActionLink:hover {
+  color: #FFD700 !important;
 }
 
 /* Labels */
 .cl-formFieldLabel {
-  color: #4a5568 !important; /* Dark gray for labels */
+  color: #E0E0E0 !important;
+  font-weight: 500 !important;
 }
 
 /* Placeholder text */
 .cl-input::placeholder {
-  color: #a0aec0 !important; /* Medium gray for placeholders */
+  color: #808080 !important;
+}
+
+/* Social buttons */
+.cl-socialButtonsBlockButton {
+  background: #2A2A2A !important;
+  border: 1px solid rgba(201, 162, 39, 0.3) !important;
+  color: #E0E0E0 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.cl-socialButtonsBlockButton:hover {
+  background: rgba(201, 162, 39, 0.1) !important;
+  border-color: #C9A227 !important;
+}
+
+/* Divider */
+.cl-dividerLine {
+  background: rgba(201, 162, 39, 0.2) !important;
+}
+
+.cl-dividerText {
+  color: #A0A0A0 !important;
+  background: #1E1E1E !important;
+}
+
+/* Error messages */
+.cl-formFieldErrorText {
+  color: #EF4444 !important;
+}
+
+/* Success messages */
+.cl-formFieldSuccessText {
+  color: #10B981 !important;
 } 
