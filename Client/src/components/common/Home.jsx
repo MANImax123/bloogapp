@@ -29,7 +29,7 @@ function Home() {
     let res = null;
     try {
       if (selectedRole === 'author') {
-        res = await axios.post('http://localhost:3000/author-api/author', currentUser)
+        res = await axios.post(`${import.meta.env.VITE_API_URL}/author-api/author`, currentUser)
         let { message, payload } = res.data;
         // console.log(message, payload)
         if (message === 'author') {
@@ -43,7 +43,7 @@ function Home() {
       }
       if (selectedRole === 'user') {
         console.log(currentUser)
-        res = await axios.post('http://localhost:3000/user-api/user', currentUser)
+        res = await axios.post(`${import.meta.env.VITE_API_URL}/user-api/user`, currentUser)
         let { message, payload } = res.data;
         console.log(message)
         if (message === 'user') {

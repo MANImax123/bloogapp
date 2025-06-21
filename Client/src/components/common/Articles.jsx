@@ -18,7 +18,7 @@ function Articles() {
     //get jwt token
     const token = await getToken()
     //make authenticated req
-    let res = await axios.get('http://localhost:3000/author-api/articles', {
+    let res = await axios.get(`${import.meta.env.VITE_API_URL}/author-api/articles`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

@@ -60,8 +60,8 @@ function PostArticle() {
     articleObj.isArticleActive = true;
     //console.log(articleObj)
     //make HTTP POST req to create new article in backend
-    let res = await axios.post('http://localhost:3000/author-api/article', articleObj)
-    if (res.status === 201) {
+    let res = await axios.post(`${import.meta.env.VITE_API_URL}/author-api/article`, articleObj)
+    if (res.data.message === 'article published') {
       //navigate to articles component
       navigate(`/author-profile/${currentUser.email}/articles`)
     } else {

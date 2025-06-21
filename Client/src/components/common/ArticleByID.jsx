@@ -41,7 +41,7 @@ function ArticleByID() {
     articleAfterChanges.dateOfModification = currentDate.getDate() + "-" + currentDate.getMonth() + "-" + currentDate.getFullYear()
 
     //make http post req
-    let res = await axios.put(`http://localhost:3000/author-api/article/${articleAfterChanges.articleId}`,
+    let res = await axios.put(`${import.meta.env.VITE_API_URL}/author-api/article/${articleAfterChanges.articleId}`,
       articleAfterChanges,
       {
         headers: {
@@ -65,7 +65,7 @@ function ArticleByID() {
     commentObj.nameOfUser=currentUser.firstName;
     console.log(commentObj)
     //http put
-    let res=await axios.put(`http://localhost:3000/user-api/comment/${currentArticle.articleId}`,commentObj);
+    let res=await axios.put(`${import.meta.env.VITE_API_URL}/user-api/comment/${currentArticle.articleId}`,commentObj);
     if(res.data.message==='comment added'){
       setCommentStatus(res.data.message)
     }
@@ -80,7 +80,7 @@ function ArticleByID() {
     }
     
     state.isArticleActive = false
-    let res = await axios.put(`http://localhost:3000/author-api/articles/${state.articleId}`, state)
+    let res = await axios.put(`${import.meta.env.VITE_API_URL}/author-api/articles/${state.articleId}`, state)
     if (res.data.message === 'article deleted or restored') {
       setCurrentArticle(res.data.payload)
       toast.success("Article deleted successfully")
@@ -95,7 +95,7 @@ function ArticleByID() {
     }
     
     state.isArticleActive = true
-    let res = await axios.put(`http://localhost:3000/author-api/articles/${state.articleId}`, state)
+    let res = await axios.put(`${import.meta.env.VITE_API_URL}/author-api/articles/${state.articleId}`, state)
     if (res.data.message === 'article deleted or restored') {
       setCurrentArticle(res.data.payload)
       toast.success("Article restored successfully")
